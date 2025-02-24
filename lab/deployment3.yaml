@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hellocloud-v3
+  labels:
+    app: hc-deployment
+spec:
+  replicas: 3
+  selector: 
+    matchLabels:
+      app: hellocloud
+  template:
+    metadata:
+      labels:
+        app: hellocloud
+    spec:
+      containers:
+      - name: cnfp1-container
+        image: hashicorp/http-echo
+        args:
+        - "-listen=:7070"
+        - "-text=Welcome to cnfp1 version 3"
+      - name: cnfp2-container
+        image: hashicorp/http-echo
+        args:
+        - "-listen=:8080"
+        - "-text=Welcome to cnfp2 version 3"
+      - name: cnfp3-container
+        image: hashicorp/http-echo
+        args:
+        - "-listen=:9090"
+        - "-text=Welcome to cnfp3 version 3"

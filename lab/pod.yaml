@@ -1,0 +1,23 @@
+apiVersion: v1
+kind: Pod
+metadata: 
+  name: hellocloud
+  labels: 
+    app: hellocloud
+spec: 
+  containers:
+  - name: cnfp1-container
+    image: hashicorp/http-echo
+    args:
+    - "-listen=:8080"
+    - "-text=Welcome to cnfp1"
+  - name: cnfp1-container2
+    image: hashicorp/http-echo
+    args:
+    - "-listen=:9090"
+    - "-text=Welcome to cnfp2"
+  - name: cnfp1-container3
+    image: hashicorp/http-echo
+    args:
+    - "-listen=:7070"
+    - "-text=Welcome to cnfp23"

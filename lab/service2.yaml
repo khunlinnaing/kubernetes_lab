@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: hellocloud-service
+  labels:
+    app: hellocloud-service
+spec:
+  type: ClusterIP
+  selector:
+    app: hellocloud
+  ports:
+  - name: container-one
+    port: 8080
+    protocol: TCP
+    targetPort: 8080
